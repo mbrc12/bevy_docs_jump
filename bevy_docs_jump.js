@@ -49,16 +49,32 @@ function main() {
 
     const version = match[1]
     const module = match[2]
-    const item = match[3]
+    let item = match[3]
 
-    const target_module = jumps[module]
+    const target_module = jumps[module];
     if (!target_module) {
         return
     }
+    
+    if (module.startsWith("prelude")) {
+        return
+    }
+
+    let url_text = '⌲'
+
+    if (item.startsWith("prelude")) {
+        item = "index.html"
+        url_text = '⇧' + url_text
+    }
 
     const target = `https://docs.rs/${target_module}/${version}/${target_module}/${item}`
+    
+    const heading = document.getElementById("main-content").getElementsByClassName("main-heading").item(0).getElementsByTagName("h1").item(0)
+    if (!heading) {
+        return
+    }
 
-    window.location.replace(target)
+    heading.innerHTML += `<a href = '${target}' style = "text-decoration: none;">${url_text}</a>`
 }
 
 main()
