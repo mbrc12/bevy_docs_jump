@@ -14,5 +14,11 @@
             "matches": ["*://docs.rs/bevy/*"],
             "js": ["bevy_docs_jump.js"]
         }
-    ]
+    ],
+
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "subwave@mriganka.xyz"
+        }
+    }
 }
