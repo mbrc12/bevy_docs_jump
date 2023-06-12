@@ -1,0 +1,18 @@
+{
+    "manifest_version": 2,
+    "name": "bevy_docs_jump",
+    "version": "0.1",
+
+    "icons": {
+        "96": "icons/icon.png"
+    },
+
+    "description": "Automatically jump to the correct bevy sub-crate when on bevy docs.",
+    
+    "content_scripts": [
+        {
+            "matches": ["*://docs.rs/bevy/*"],
+            "js": ["bevy_docs_jump.js"]
+        }
+    ]
+}
